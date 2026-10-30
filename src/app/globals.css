@@ -56,3 +56,11 @@
  .resume-page p{color:#222!important}
  a{color:#111!important;text-decoration:none}
 }
+
+/* Mobile-only hero emphasis: keep outlined display treatment on desktop */
+@media(max-width:760px){
+  .hero h1 b{
+    color:var(--ink);
+    -webkit-text-stroke:0;
+  }
+}
