@@ -1,9 +1,10 @@
 # Akhil Alladi — Creative Portfolio
 
-An editorial-style, responsive portfolio for graphic designer Akhil Alladi. Original visual direction inspired by image-led editorial portfolios, with generous whitespace, expressive typography and a restrained cobalt accent.
+An editorial-style, responsive portfolio for graphic designer Akhil Alladi, built with Next.js, React and TypeScript and published as a static site on GitHub Pages.
 
 ## Stack
-- Next.js App Router, React and TypeScript
+- Next.js App Router with static export
+- React and TypeScript
 - Tailwind CSS v4
 - Framer Motion and Lucide React
 
@@ -19,11 +20,23 @@ npm run dev
 ```bash
 npm run typecheck
 npm run lint
-npm run build
+GITHUB_PAGES=true npm run build
 ```
 
-## Personalise before launch
-Update the project content and imagery in `src/data/projects.ts`. Sample imagery and concept entries are placeholders, not verified client deliverables. Replace them with original, approved work. Add your approved CV at `public/Akhil-Alladi-Resume.pdf` and connect a secure form provider before relying on contact submissions. Update the canonical domain in `src/app/layout.tsx` and `src/app/sitemap.ts` when your final domain is known.
+## Deployment — GitHub Pages
+Every push to `main` runs the GitHub Pages deployment workflow. Next.js exports the site to `out/`, and GitHub Actions publishes that folder.
 
-## Deploy
-Import the repository into Vercel and use the default Next.js build settings. Configure environment variables only for server-side integrations; never expose private API keys in browser code.
+The project site URL is:
+https://akhilalladi-code.github.io/akhil-alladi-portfolio/
+
+### One-time repository setup
+In GitHub, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**. The workflow then deploys automatically on pushes to `main`.
+
+## Contact form
+The contact form prepares an email using the visitor's default email application; it does not send or store submissions on a server.
+
+## SEO
+Canonical metadata, sitemap and robots.txt use the GitHub Pages project-site URL. The sitemap is available at `/akhil-alladi-portfolio/sitemap.xml`.
+
+## Content
+Project content is maintained in `src/data/projects.ts`. Keep project descriptions, credits and image rights accurate before publishing.
