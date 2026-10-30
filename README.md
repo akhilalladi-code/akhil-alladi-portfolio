@@ -96,11 +96,11 @@ public/
 
 ### Projects
 
-Project entries are maintained in `src/data/projects.ts`. Each project includes a slug, title, category, year, description, client/context, scope, image, alternative text, featured flag and status.
+The Work archive currently features **12 projects from Akhil’s Behance profile**. Project entries are maintained in `src/data/projects.ts`. Each project includes a slug, title, category, year, description, client/context, scope, Behance cover image, alternative text, featured flag and the original Behance project URL. Project thumbnails link to the original Behance project, and each internal project page also provides a link to view the full project on Behance.\n\nBehance profile: https://www.behance.net/akhil_alladi
 
 When adding or editing a project:
 
-1. Use original artwork or images you have permission to publish.
+1. Keep the linked Behance project and its cover image matched correctly; replace the cover with a locally hosted optimised image if you later have approved original files.
 2. Write accurate project descriptions and identify your role clearly.
 3. Mark independent concepts and unfinished entries as concepts/placeholders.
 4. Add descriptive alternative text for meaningful images.
