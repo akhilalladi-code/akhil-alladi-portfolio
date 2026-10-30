@@ -20,7 +20,7 @@ export default async function CaseStudy({params}:{params:Promise<{slug:string}>}
     <Link className="underlink back-link" href="/work">← Back to all projects</Link>
 
     <header className="case-header">
-      <p className="eyebrow">PROJECT {String(index+1).padStart(2,"0")} / 12 · {project.category} · {project.year}</p>
+      <p className="eyebrow">PROJECT {String(index+1).padStart(2,"0")} / {projects.length} · {project.category} · {project.year}</p>
       <h1>{project.title}</h1>
       <p className="lede">{project.description}</p>
     </header>
