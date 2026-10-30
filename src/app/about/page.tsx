@@ -26,7 +26,7 @@ export default function About() {
         </div>
         <figure className="about-portrait">
           <Image
-            src="/images/akhil-alladi-portrait.webp"
+            src={process.env.NODE_ENV === "production" ? "/akhil-alladi-portfolio/images/akhil-alladi-portrait.webp" : "/images/akhil-alladi-portrait.webp"}
             alt="Akhil Alladi, Senior Graphic Designer"
             fill
             priority
