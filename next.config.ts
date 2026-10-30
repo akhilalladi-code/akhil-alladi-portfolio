@@ -6,7 +6,10 @@ const nextConfig: NextConfig = {
   basePath: process.env.GITHUB_PAGES === "true" ? "/akhil-alladi-portfolio" : "",
   images: {
     unoptimized: true,
-    remotePatterns: [\n      { protocol: "https", hostname: "images.unsplash.com" },\n      { protocol: "https", hostname: "mir-s3-cdn-cf.behance.net" },\n    ],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "mir-s3-cdn-cf.behance.net" },
+    ],
   },
 };
 
