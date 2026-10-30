@@ -1,0 +1,1 @@
+import type {MetadataRoute} from "next";import {projects} from "@/data/projects";export default function sitemap():MetadataRoute.Sitemap{const base="https://akhilalladi.com";return["","/work","/about","/services","/resume","/contact",...projects.map(p=>"/work/"+p.slug)].map(path=>({url:base+path,lastModified:new Date(),changeFrequency:"monthly",priority:path===""?1:.7}));}
