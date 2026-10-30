@@ -1,1 +1,64 @@
-import Link from "next/link";export const metadata={title:"About",description:"Akhil Alladi, Senior Graphic Designer in Hyderabad, with experience across corporate branding, broadcast media, editorial design and marketing."};export default function About(){return <section className="container page"><p className="eyebrow">A LITTLE CONTEXT / ABOUT ME</p><h1>Designing with<br/><em>purpose.</em></h1><p className="lede">I’m Akhil Alladi, a Senior Graphic Designer based in Hyderabad, India, with 4+ years of experience shaping visual communication across corporate branding, broadcast media, editorial design and marketing.</p><div className="copy-grid"><p className="eyebrow">THE JOURNEY</p><div><h2>Different industries. One focus: clear visual communication.</h2><p>I began at BIG TV Telugu, creating on-air graphics, show stings and motion-led visual elements for news and programmes. I later worked as a freelance motion graphic designer on political campaign identities, videos and promotional material, followed by graphic design work at Sakshi Media across branding layouts, collateral and large-format graphics.</p><p>At Indosol Solar Private Limited, I work across corporate branding, rebranding initiatives, marketing communication, social media creatives and corporate films. I joined as a Graphic Designer in November 2024 and was promoted to Senior Graphic Designer in April 2026.</p></div></div><div className="copy-grid"><p className="eyebrow">DESIGN APPROACH</p><div><h2>Clarity, consistency and communication.</h2><p>I translate ideas and business messages into visual systems that are considered, recognisable and useful across different touchpoints. I also explore AI-assisted workflows, with human judgement and art direction guiding the final work.</p></div></div><div className="copy-grid"><p className="eyebrow">TOOLS & PRACTICE</p><div><h2>Creative tools. Practical thinking.</h2><p>Photoshop · Illustrator · InDesign · After Effects · Premiere Pro · Canva · VIZRT</p><p>Brand identity · Corporate branding · Visual communication · Marketing collateral · Social media campaigns · Broadcast graphics · Motion graphics · Editorial and large-format design · AI-assisted workflows</p></div></div><p className="muted">Based in Hyderabad, Telangana, India.</p><Link className="underlink" href="/work">Explore selected work ↗</Link></section>}
+import Image from "next/image";
+import Link from "next/link";
+
+export const metadata = {
+  title: "About",
+  description:
+    "Meet Akhil Alladi, Senior Graphic Designer in Hyderabad, India, with 4+ years of experience across corporate branding, broadcast media, editorial design and marketing.",
+  openGraph: {
+    title: "About Akhil Alladi — Senior Graphic Designer",
+    description: "A little context on Akhil's design journey, approach and experience.",
+  },
+};
+
+export default function About() {
+  return (
+    <section className="container page">
+      <p className="eyebrow">A LITTLE CONTEXT / ABOUT ME</p>
+      <div className="about-intro">
+        <div className="about-intro-copy">
+          <h1>Designing with<br /><em>purpose.</em></h1>
+          <p className="lede">
+            I’m Akhil Alladi, a Senior Graphic Designer based in Hyderabad, India,
+            with 4+ years of experience shaping visual communication across
+            corporate branding, broadcast media, editorial design and marketing.
+          </p>
+        </div>
+        <figure className="about-portrait">
+          <Image
+            src="/images/akhil-alladi-portrait.webp"
+            alt="Akhil Alladi, Senior Graphic Designer"
+            fill
+            priority
+            sizes="(max-width: 760px) 100vw, 42vw"
+          />
+        </figure>
+      </div>
+      <div className="copy-grid">
+        <p className="eyebrow">THE JOURNEY</p>
+        <div>
+          <h2>Different industries. One focus: clear visual communication.</h2>
+          <p>I began at BIG TV Telugu, creating on-air graphics, show stings and motion-led visual elements for news and programmes. I later worked as a freelance motion graphic designer on political campaign identities, videos and promotional material, followed by graphic design work at Sakshi Media across branding layouts, collateral and large-format graphics.</p>
+          <p>At Indosol Solar Private Limited, I work across corporate branding, rebranding initiatives, marketing communication, social media creatives and corporate films. I joined as a Graphic Designer in November 2024 and was promoted to Senior Graphic Designer in April 2026.</p>
+        </div>
+      </div>
+      <div className="copy-grid">
+        <p className="eyebrow">DESIGN APPROACH</p>
+        <div>
+          <h2>Clarity, consistency and communication.</h2>
+          <p>I translate ideas and business messages into visual systems that are considered, recognisable and useful across different touchpoints. I also explore AI-assisted workflows, with human judgement and art direction guiding the final work.</p>
+        </div>
+      </div>
+      <div className="copy-grid">
+        <p className="eyebrow">TOOLS & PRACTICE</p>
+        <div>
+          <h2>Creative tools. Practical thinking.</h2>
+          <p>Photoshop · Illustrator · InDesign · After Effects · Premiere Pro · Canva · VIZRT</p>
+          <p>Brand identity · Corporate branding · Visual communication · Marketing collateral · Social media campaigns · Broadcast graphics · Motion graphics · Editorial and large-format design · AI-assisted workflows</p>
+        </div>
+      </div>
+      <p className="muted">Based in Hyderabad, Telangana, India.</p>
+      <Link className="underlink" href="/work">Explore selected work ↗</Link>
+    </section>
+  );
+}
