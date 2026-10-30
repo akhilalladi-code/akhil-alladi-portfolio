@@ -29,6 +29,8 @@ export default async function CaseStudy({params}:{params:Promise<{slug:string}>}
       <Image src={project.image} alt={project.alt} fill priority sizes="100vw"/>
     </figure>
 
+    {project.videos?.length ? <section className="case-video-gallery" aria-label="Project videos">{project.videos.map((id)=><div key={id} className="video-frame"><iframe src={`https://www.youtube-nocookie.com/embed/${id}`} title={`${project.title} video`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div>)}</section> : null}
+    {project.gallery?.length ? <section className="case-gallery" aria-label="Project gallery"><p className="eyebrow">PROJECT GALLERY</p><div className="case-gallery-grid">{project.gallery.map((src,i)=><figure className="project-image gallery-image" key={src}><Image src={src} alt={`${project.title} — gallery image ${i+1}`} width={1600} height={1200} sizes="(max-width: 700px) 100vw, 50vw" /></figure>)}</div></section> : null}
     <section className="case-facts" aria-label="Project information">
       <div><span>CLIENT / CONTEXT</span><b>{project.client}</b></div>
       <div><span>YEAR</span><b>{project.year}</b></div>
