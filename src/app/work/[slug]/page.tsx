@@ -2,19 +2,67 @@ import {notFound} from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {projects} from "@/data/projects";
-export function generateStaticParams(){return projects.map(p=>({slug:p.slug}));}
+
+export function generateStaticParams(){
+  return projects.map(project=>({slug:project.slug}));
+}
+
 export default async function CaseStudy({params}:{params:Promise<{slug:string}>}){
- const{slug}=await params;const index=projects.findIndex(x=>x.slug===slug);const p=projects[index];if(!p)notFound();
- const next=projects[(index+1)%projects.length];
- const isConcept=p.status!=="portfolio";
- return <article className="container page case-study">
-  <Link className="underlink back-link" href="/work">← Back to work</Link>
-  <p className="eyebrow">{p.category} / {p.year} / {isConcept?"CONCEPT OR PLACEHOLDER":"SELECTED WORK"}</p>
-  <h1>{p.title}</h1><p className="lede">{p.description}</p>
-  <div className="project-image case-hero" data-cursor="view"><Image src={p.image} alt={p.alt} fill priority sizes="100vw"/></div>
-  <div className="case-facts"><div><span>CLIENT / CONTEXT</span><b>{p.client}</b></div><div><span>YEAR</span><b>{p.year}</b></div><div><span>SERVICES</span><b>{p.scope.join(" · ")}</b></div></div>
-  <div className="copy-grid"><p className="eyebrow">THE PROJECT</p><div><h2>{isConcept?"An exploration in progress.":"A visual system built around a clear message."}</h2><p>{isConcept?"This entry is currently a concept or placeholder. Replace the sample image and copy with original artwork, project objectives, design decisions and final deliverables before publishing it as portfolio work.":"Use this section to explain the business context, communication challenge and the role design played. Add only verified project details and approved client work."}</p><p className="note">{isConcept?"Concept / placeholder — not represented as commissioned client work.":"Add approved project-specific process notes, outcomes and final deliverables before launch."}</p></div></div>
-  <div className="case-next"><div><p className="eyebrow">NEXT PROJECT</p><h2>{next.title}</h2><p className="muted">{next.category} · {next.year}</p></div><Link className="round magnetic" href={"/work/"+next.slug} aria-label={"Next project: "+next.title}>↗</Link></div>
-  <div className="case-actions"><Link className="underlink" href={p.behanceUrl} target="_blank" rel="noreferrer">View full project on Behance ↗</Link><Link className="underlink" href="/contact">Discuss a project ↗</Link></div>
- </article>;
+  const {slug}=await params;
+  const index=projects.findIndex(project=>project.slug===slug);
+  const project=projects[index];
+  if(!project)notFound();
+
+  const next=projects[(index+1)%projects.length];
+  const previous=projects[(index+projects.length-1)%projects.length];
+
+  return <article className="container page case-study">
+    <Link className="underlink back-link" href="/work">← Back to all projects</Link>
+
+    <header className="case-header">
+      <p className="eyebrow">PROJECT {String(index+1).padStart(2,"0")} / 12 · {project.category} · {project.year}</p>
+      <h1>{project.title}</h1>
+      <p className="lede">{project.description}</p>
+    </header>
+
+    <figure className="project-image case-hero" data-cursor="view">
+      <Image src={project.image} alt={project.alt} fill priority sizes="100vw"/>
+    </figure>
+
+    <section className="case-facts" aria-label="Project information">
+      <div><span>CLIENT / CONTEXT</span><b>{project.client}</b></div>
+      <div><span>YEAR</span><b>{project.year}</b></div>
+      <div><span>DISCIPLINE</span><b>{project.category}</b></div>
+      <div><span>SERVICES</span><b>{project.scope.join(" · ")}</b></div>
+    </section>
+
+    <section className="copy-grid">
+      <p className="eyebrow">OVERVIEW</p>
+      <div>
+        <h2>Making the message clear through design.</h2>
+        <p>{project.description}</p>
+        <p>This project is part of my selected design portfolio. The work brings together visual hierarchy, composition and brand-led communication to create a focused piece of creative work for its intended audience.</p>
+      </div>
+    </section>
+
+    <section className="copy-grid">
+      <p className="eyebrow">MY CONTRIBUTION</p>
+      <div>
+        <h2>Creative direction &amp; execution</h2>
+        <p>The project scope includes {project.scope.join(", ").toLowerCase()}. The final presentation is intended to communicate the core message quickly while keeping the visual language consistent and considered.</p>
+        <ul className="case-scope">{project.scope.map(item=><li key={item}>{item}</li>)}</ul>
+      </div>
+    </section>
+
+    <section className="case-actions">
+      <Link className="underlink" href={project.behanceUrl} target="_blank" rel="noreferrer">See original project on Behance ↗</Link>
+      <Link className="underlink" href="/contact">Discuss a project ↗</Link>
+    </section>
+
+    <nav className="case-next" aria-label="Project navigation">
+      <div><p className="eyebrow">PREVIOUS</p><h2><Link href={"/work/"+previous.slug}>{previous.title}</Link></h2></div>
+      <Link className="round magnetic" href={"/work/"+next.slug} aria-label={"Next project: "+next.title}>↗</Link>
+      <div><p className="eyebrow">NEXT PROJECT</p><h2><Link href={"/work/"+next.slug}>{next.title}</Link></h2></div>
+    </nav>
+  </article>;
 }
