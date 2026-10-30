@@ -39,17 +39,17 @@ export default async function CaseStudy({params}:{params:Promise<{slug:string}>}
     <section className="copy-grid">
       <p className="eyebrow">OVERVIEW</p>
       <div>
-        <h2>Making the message clear through design.</h2>
+        <h2>The thinking behind the work.</h2>
         <p>{project.description}</p>
-        <p>This project is part of my selected design portfolio. The work brings together visual hierarchy, composition and brand-led communication to create a focused piece of creative work for its intended audience.</p>
+        <p>This project brings together its brief, audience and visual language into a focused design solution. The project description above explains the specific creative objective and communication context.</p>
       </div>
     </section>
 
     <section className="copy-grid">
       <p className="eyebrow">MY CONTRIBUTION</p>
       <div>
-        <h2>Creative direction &amp; execution</h2>
-        <p>The project scope includes {project.scope.join(", ").toLowerCase()}. The final presentation is intended to communicate the core message quickly while keeping the visual language consistent and considered.</p>
+        <h2>Design scope &amp; execution</h2>
+        <p>The work covers {project.scope.join(", ").toLowerCase()}. Each element is considered in relation to the project context, its audience and the way the final creative is intended to be used.</p>
         <ul className="case-scope">{project.scope.map(item=><li key={item}>{item}</li>)}</ul>
       </div>
     </section>
