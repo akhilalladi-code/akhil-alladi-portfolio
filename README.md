@@ -1,3 +1,7 @@
+![AKHIL ALLADI — Diwali 2026](./assets/diwali-banner.svg)
+
+<p align="center"><a href="https://akhilalladi-code.github.io/diwali-universe/"><strong>🪔 Explore Diwali Universe 2026 · Interactive celebration ↗</strong></a></p>
+
 # Akhil Alladi — Graphic Design Portfolio
 
 A premium, editorial-style portfolio for **Akhil Alladi**, Senior Graphic Designer based in Hyderabad, India. The site presents design work, professional experience, services, resume and contact information through a responsive Next.js application.
